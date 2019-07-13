@@ -788,11 +788,11 @@ class Blade(object):
 
             ## DISPLAY FACES
             if upper_face:
-                display.DisplayShape(generated_upper_face, update=True)
+                display.DisplayShape(self.generated_upper_face, update=True)
             if lower_face:
-                display.DisplayShape(generated_lower_face, update=True)
+                display.DisplayShape(self.generated_lower_face, update=True)
             if tip:
-                display.DisplayShape(generated_tip, update=True)
+                display.DisplayShape(self.generated_tip, update=True)
             start_display()
 
     def generate_stl(self, min_length=None, max_length=None, outfile_stl=None):
