@@ -529,7 +529,7 @@ class Blade(object):
             # Initializes an algorithm for constructing a constrained
             # BSpline curve passing through the points of the blade i-th
             # section, with tolerance = 1e-9
-            bspline = GeomAPI_Interpolate(vertices.GetHandle(), False, 1e-9)
+            bspline = GeomAPI_Interpolate(vertices, False, 1e-9)
             bspline.Perform()
             edge = BRepBuilderAPI_MakeEdge(bspline.Curve()).Edge()
             if i == 0:
@@ -567,7 +567,7 @@ class Blade(object):
             # Initializes an algorithm for constructing a constrained
             # BSpline curve passing through the points of the blade i-th
             # section, with tolerance = 1e-9
-            bspline = GeomAPI_Interpolate(vertices.GetHandle(), False, 1e-9)
+            bspline = GeomAPI_Interpolate(vertices, False, 1e-9)
             bspline.Perform()
             edge = BRepBuilderAPI_MakeEdge(bspline.Curve()).Edge()
             if i == 0:
@@ -609,10 +609,10 @@ class Blade(object):
         # Initializes an algorithm for constructing a constrained
         # BSpline curve passing through the points of the blade last
         # section, with tolerance = 1e-9
-        bspline_1 = GeomAPI_Interpolate(vertices_1.GetHandle(), False, 1e-9)
+        bspline_1 = GeomAPI_Interpolate(vertices_1, False, 1e-9)
         bspline_1.Perform()
 
-        bspline_2 = GeomAPI_Interpolate(vertices_2.GetHandle(), False, 1e-9)
+        bspline_2 = GeomAPI_Interpolate(vertices_2, False, 1e-9)
         bspline_2.Perform()
 
         edge_1 = BRepBuilderAPI_MakeEdge(bspline_1.Curve()).Edge()
