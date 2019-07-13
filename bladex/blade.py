@@ -491,11 +491,11 @@ class Blade(object):
         """
         Private static method to import specific modules from the OCC package.
         """
-        from OCC.BRepOffsetAPI import BRepOffsetAPI_ThruSections
-        from OCC.gp import gp_Pnt
-        from OCC.TColgp import TColgp_HArray1OfPnt
-        from OCC.GeomAPI import GeomAPI_Interpolate
-        from OCC.BRepBuilderAPI import BRepBuilderAPI_MakeVertex,\
+        from OCC.Core.BRepOffsetAPI import BRepOffsetAPI_ThruSections
+        from OCC.Core.gp import gp_Pnt
+        from OCC.Core.TColgp import TColgp_HArray1OfPnt
+        from OCC.Core.GeomAPI import GeomAPI_Interpolate
+        from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeVertex,\
              BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeWire
 
         # Set the imported modules as global variables to be used out of scope
@@ -645,9 +645,9 @@ class Blade(object):
             blade and the nearest point on the CAD that is perpendicular to
             that point
         """
-        from OCC.gp import gp_Pnt
-        from OCC.BRepBuilderAPI import BRepBuilderAPI_MakeVertex
-        from OCC.BRepExtrema import BRepExtrema_DistShapeShape
+        from OCC.Core.gp import gp_Pnt
+        from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeVertex
+        from OCC.Core.BRepExtrema import BRepExtrema_DistShapeShape
 
         output_string = '\n'
         with open(errors + '.txt', 'w') as f:
@@ -745,7 +745,7 @@ class Blade(object):
         airfoils. Also to be able to identify and close the blade tip.
         """
 
-        from OCC.IGESControl import IGESControl_Writer
+        from OCC.Core.IGESControl import IGESControl_Writer
         from OCC.Display.SimpleGui import init_display
 
         if maxDeg <= 0:
@@ -824,12 +824,12 @@ class Blade(object):
         manual mesh healing is recommended by the user (e.g. see
         "Repair > Sewing" in SALOME GUI) for a proper mesh closure.
         """
-        from OCC.SMESH import SMESH_Gen
-        from OCC.StdMeshers import (
+        from OCC.Core.SMESH import SMESH_Gen
+        from OCC.Core.StdMeshers import (
             StdMeshers_Arithmetic1D, StdMeshers_TrianglePreference,
             StdMeshers_Regular_1D, StdMeshers_MEFISTO_2D)
-        from OCC.BRep import BRep_Builder
-        from OCC.TopoDS import TopoDS_Shape, TopoDS_Compound
+        from OCC.Core.BRep import BRep_Builder
+        from OCC.Core.TopoDS import TopoDS_Shape, TopoDS_Compound
 
         if min_length <= 0 or max_length <= 0:
             raise ValueError('min_length and max_length must be positive.')
